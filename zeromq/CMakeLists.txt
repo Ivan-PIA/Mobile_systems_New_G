@@ -1,27 +1,52 @@
-cmake_minimum_required(VERSION 3.10)
+# cmake_minimum_required(VERSION 3.10)
 
 
-project(ZMQExample)
+# project(ZMQExample)
 
 
+# set(CMAKE_C_STANDARD 99)
+
+
+# find_package(PkgConfig REQUIRED)
+# pkg_check_modules(PC_ZMQ REQUIRED libzmq)
+
+
+# add_executable(client /home/ivan/Mobil_System/Mobile_systems_New_G/zeromq/test/client.c)
+
+
+# target_link_libraries(client ${PC_ZMQ_LIBRARIES})
+
+
+# add_executable(server /home/ivan/Mobil_System/Mobile_systems_New_G/zeromq/test/server.c)
+
+
+# target_link_libraries(server ${PC_ZMQ_LIBRARIES})
+
+
+# target_include_directories(client PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
+# target_include_directories(server PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
+
+
+cmake_minimum_required(VERSION 3.22)
+project(MobileSystem)
 set(CMAKE_C_STANDARD 99)
+# find_package(PkgConfig REQUIRED)
+# pkg_check_modules(PC_ZMQ REQUIRED libzmq pcap)
 
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(PC_ZMQ REQUIRED libzmq)
+# execute_process(
+#     # COMMAND sudo apt-get install libpcap-dev
+# )
+
 
 
 add_executable(client /home/ivan/Mobil_System/Mobile_systems_New_G/zeromq/test/client.c)
-
-
-target_link_libraries(client ${PC_ZMQ_LIBRARIES})
-
-
+target_link_libraries(client zmq pcap)
 add_executable(server /home/ivan/Mobil_System/Mobile_systems_New_G/zeromq/test/server.c)
 
+target_link_libraries(server zmq pcap)
 
-target_link_libraries(server ${PC_ZMQ_LIBRARIES})
 
 
-target_include_directories(client PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
-target_include_directories(server PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
+# target_include_directories(client PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
+# target_include_directories(server PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
